@@ -36,7 +36,7 @@
     .btn:hover{transform:translateY(-1px)}
     .btn-primary{background:linear-gradient(135deg,var(--primary),#ff7ec1);color:#fff}
     .btn-outline{border:2px dashed var(--ink-soft);background:#fff}
-    .hero{max-width:1150px;margin:18px auto;padding:22px 18px;display:grid;grid-template-columns:1.05fr .95fr;gap:26px;align-items:center}
+    .hero{max-width:1150px;margin:18px auto;padding:22px 18px;display:grid;grid-template-columns:1fr;gap:18px;align-items:center}
     .badge{display:inline-flex;gap:8px;align-items:center;background:#fff;border:2px dashed var(--secondary);padding:6px 10px;border-radius:999px;font-weight:800}
     .hero h2{font-family:"Fredoka";font-size:44px;line-height:1.04;margin:10px 0}
     .hero p{font-size:18px;color:var(--ink-soft);margin:0 0 18px}
@@ -150,12 +150,6 @@
         <span class="pill">Travel Friendly</span>
       </div>
     </div>
-    <div class="hero-card logo-lockup">
-      <div style="text-align:center">
-        <div style="font-family:Fredoka;font-weight:800;font-size:20px;margin-bottom:8px">Add Final Logo Image Here</div>
-        <div class="subtitle">Drop the high‑res PNG/SVG of the logo you approved.</div>
-      </div>
-    </div>
   </header>
 
   <section id="services">
@@ -205,7 +199,7 @@
   <section id="contact">
     <div class="wrap">
       <div class="title"><h3>Check Availability</h3><p class="subtitle">Tell us your date, location, duration (2‑hour minimum), and the activities you’d like.</p></div>
-      <div class="grid" style="grid-template-columns:1.2fr .8fr;gap:18px">
+      <div class="grid" style="grid-template-columns:1fr;gap:18px">
         <form id="quoteForm" onsubmit="handleQuote(event)">
           <label for="name">Your Name*</label>
           <input id="name" required placeholder="Jane Parent" />
@@ -248,27 +242,10 @@
           <label for="message">Notes / Special Requests</label>
           <textarea id="message" placeholder="Theme, age range, parking details, indoor/outdoor, etc."></textarea>
 
-          <p class="note">By submitting, you agree to our friendly booking policy. We typically reply within a few hours with availability and a tailored quote.</p>
+          <p class="note">We’ll email your request to misskiddeeandfriends@gmail.com and reply with availability and a tailored quote.</p>
           <div style="margin-top:12px;display:flex;gap:12px;flex-wrap:wrap">
             <button class="btn btn-primary" type="submit" data-confetti>Request Quote</button>
-            <a class="btn btn-outline" href="tel:+1-555-555-5555">📞 Call Now</a>
-          </div>
-        </form>
-        <div class="hero-card">
-          <h4 style="margin:0 0 8px">We’re Travel‑Happy ✈️</h4>
-          <p class="subtitle">Local to your area and happy to visit neighboring cities. Share your address and we’ll include travel details in your quote.</p>
-          <div class="logo-lockup" style="aspect-ratio:16/10"><div>🗺️ Add a service‑area map or cute illustration here</div></div>
-          <div class="pill-row" style="margin-top:8px">
-            <span class="pill">Birthdays</span>
-            <span class="pill">Schools</span>
-            <span class="pill">Libraries</span>
-            <span class="pill">Festivals</span>
-            <span class="pill">Corporate Family Days</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+            <a class="bt
 
   <section id="gallery">
     <div class="wrap">
