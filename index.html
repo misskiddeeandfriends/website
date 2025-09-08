@@ -28,8 +28,10 @@
     .brand h1{font-family:"Fredoka";font-size:19px;margin:0;letter-spacing:.2px}
     .nav a{font-weight:700;padding:8px 12px;border-radius:12px}
     .nav-links{display:flex;gap:6px;align-items:center}
-    .mobile-toggle{display:none;border:none;background:#fff;border:2px dashed var(--ink-soft);padding:8px 12px;border-radius:12px;font-weight:800}
-    .nav-links.mobile{display:none;position:fixed;left:12px;right:12px;top:64px;background:#fff;border:3px solid #f3e9ff;border-radius:16px;box-shadow:var(--shadow);padding:10px;z-index:60}
+    /* Simplified nav: always-visible links that wrap/scroll on small screens */
+    .nav-links.nav-scroll{flex-wrap:wrap;max-width:100%;overflow-x:auto;white-space:nowrap}
+    .nav-links.nav-scroll::-webkit-scrollbar{height:6px}
+    .nav-links.nav-scroll::-webkit-scrollbar-thumb{background:#efdfff;border-radius:6px}
     .nav-links.mobile a{display:block;padding:12px 14px;border-bottom:1px dashed #f0e8ff}
     .nav-links.mobile a:last-child{border-bottom:none}
     .brand{display:flex;gap:10px;align-items:center}
@@ -87,7 +89,16 @@
     .note{font-size:14px;color:var(--ink-soft)}
     footer{background:#fff;border-top:1px solid #f1e7ef;padding:28px 18px;margin-top:30px}
     @media (max-width: 900px){
-      .mobile-toggle{display:inline-flex}
+      .hero{gap:16px}
+      .hero h2{font-size:32px}
+      .grid-3{grid-template-columns:1fr}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+      .reviews{grid-template-columns:1fr}
+      .checks{grid-template-columns:1fr}
+      input,select,textarea,.btn{font-size:16px}
+      .sticky-cta{display:flex}
+      .nav-links.nav-scroll a{padding:10px 12px}
+    }
       .nav-links.desktop{display:none !important}
       .hero{gap:16px}
       .hero h2{font-size:32px}
@@ -132,14 +143,7 @@
         </svg>
         <h1>MissKiddeeAndFriends.com</h1>
       </a>
-      <button class="mobile-toggle" id="menuBtn">Menu ▾</button>
-      <div class="nav-links desktop">
-        <a href="#services">Services</a>
-        <a href="#packages">Packages</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#contact" class="btn btn-primary" data-confetti>Check Dates</a>
-      </div>
-      <div class="nav-links mobile" id="mobileMenu">
+      <div class="nav-links nav-scroll">
         <a href="#services">Services</a>
         <a href="#packages">Packages</a>
         <a href="#gallery">Gallery</a>
@@ -316,22 +320,6 @@
     document.querySelectorAll('[data-confetti]').forEach(btn=>btn.addEventListener('click',()=>fireConfetti()));
 
     // Mobile menu toggle and behavior
-    const menuBtn=document.getElementById('menuBtn');
-    const mobileMenu=document.getElementById('mobileMenu');
-    function closeMenuOnLarge(){ if(window.innerWidth>900){ mobileMenu.style.display='none'; } }
-    addEventListener('resize', closeMenuOnLarge);
-    if(menuBtn){
-      menuBtn.addEventListener('click',()=>{
-        const open = mobileMenu.style.display==='block';
-        mobileMenu.style.display = open ? 'none' : 'block';
-      });
-      mobileMenu.addEventListener('click', (e)=>{ if(e.target.tagName==='A'){ mobileMenu.style.display='none'; }});
-      document.addEventListener('click',(e)=>{
-        const within = e.target.closest('#mobileMenu') || e.target.closest('#menuBtn');
-        if(!within){ mobileMenu.style.display='none'; }
-      });
-    }
-
     // Sticky CTA visibility
     function toggleSticky(){
       const bar=document.querySelector('.sticky-cta');
@@ -450,4 +438,5 @@ ${payload.message}`
   </div>
 </body>
 </html>
+
 
