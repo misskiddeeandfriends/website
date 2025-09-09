@@ -4,12 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>MissKiddeeAndFriends.com — Clowns • Face Painting • Party Fun</title>
-  <meta name="description" content="Book Miss Kiddee & Friends for colorful kids’ party entertainment: clowning, face painting, balloons, glitter tattoos, caricatures, mascots, concessions, bounce houses, and more. iPad & desktop–optimized. 2-hour minimum." />
+  <meta name="description" content="Book Miss Kiddee & Friends for colorful kids’ party entertainment: clowning, face painting, balloons, glitter tattoos, caricatures, mascots, murals, concessions, bounce houses, and more. iPad & desktop–optimized. 2-hour minimum." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    :root{--bg:#fff9fb; --ink:#17223b; --ink-soft:#3a4663; --primary:#ff5aa5; --secondary:#6be3ff; --accent:#ffd54a; --mint:#6af0c4; --lav:#c9b6ff; --shadow:0 10px 30px rgba(23,34,59,.08); --radius:18px}
+    :root{
+      --bg:#fff9fb; --ink:#17223b; --ink-soft:#3a4663;
+      --primary:#ff5aa5; --secondary:#6be3ff; --accent:#ffd54a; --mint:#6af0c4; --lav:#c9b6ff;
+      --shadow:0 10px 30px rgba(23,34,59,.08); --radius:18px;
+      --focus:#7c5cff;
+    }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;font-family:"Nunito",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink)}
     a{color:inherit;text-decoration:none}
@@ -29,6 +34,7 @@
     .brand h1{font-family:"Fredoka";font-size:19px;margin:0;letter-spacing:.2px}
     .nav a{font-weight:700;padding:8px 12px;border-radius:12px}
     .nav-links{display:flex;gap:6px;align-items:center}
+    /* Hamburger + mobile overlay menu */
     .mobile-toggle{display:none;border:none;background:#fff;border:2px dashed var(--ink-soft);padding:8px 12px;border-radius:12px;font-weight:800}
     .nav-links.mobile{display:none;position:fixed;left:12px;right:12px;top:64px;background:#fff;border:3px solid #f3e9ff;border-radius:16px;box-shadow:var(--shadow);padding:10px;z-index:60}
     .nav-links.mobile a{display:block;padding:12px 14px;border-bottom:1px dashed #f0e8ff}
@@ -87,17 +93,19 @@
     .stars{letter-spacing:2px;color:#ffb703}
     .reviewer{font-weight:800;margin-top:6px;color:#3a4663}
 
-    /* Form (polished) */
-    form{background:#fff;border-radius:20px;padding:22px;border:3px solid #eaf7ff;box-shadow:var(--shadow)}
-    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-    .full{grid-column:1 / -1}
-    label{font-weight:800;display:block;margin:6px 0 6px}
-    input,select,textarea{width:100%;padding:12px 14px;border-radius:12px;border:2px solid #eef0f6;font:inherit}
-    textarea{min-height:120px}
-    .checks{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-    .checks label{display:flex;gap:10px;align-items:center;font-weight:700}
+    /* FORM — polished */
+    form{background:#fff;border-radius:20px;padding:24px;border:3px solid #eaf7ff;box-shadow:var(--shadow)}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 18px}
+    .form-grid .full{grid-column:1 / -1}
+    label{font-weight:800;display:block;margin:0 0 6px}
+    input,select,textarea{width:100%;padding:12px 14px;border-radius:12px;border:2px solid #eef0f6;font:inherit;transition:border .15s, box-shadow .15s;background:#fff}
+    input:focus,select:focus,textarea:focus{outline:none;border-color:var(--focus);box-shadow:0 0 0 3px rgba(124,92,255,.15)}
+    .checks{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .checks label{background:#fdfdff;border:2px dashed #e2dfff;padding:12px;border-radius:12px;display:flex;align-items:center;gap:10px;cursor:pointer;min-height:46px;justify-content:flex-start}
+    .checks input{inline-size:18px;block-size:18px}
     .note{font-size:14px;color:var(--ink-soft)}
-    form button[type=submit]{width:100%}
+    .btn-row{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{border:none}
 
     /* Footer */
     footer{background:#fff;border-top:1px solid #f1e7ef;padding:28px 18px;margin-top:30px}
@@ -116,12 +124,12 @@
       .nav-links.desktop{display:none !important}
       .hero{grid-template-columns:1fr; gap:16px}
       .form-grid{grid-template-columns:1fr}
-      .checks{grid-template-columns:1fr}
+      .checks{grid-template-columns:1fr 1fr}
       .reviews{grid-template-columns:1fr}
       .sticky-cta{display:flex}
     }
     /* Treat small phones as not-optimized → show message (iPad widths are fine) */
-    @media (max-width: 740px){ .phone-overlay{display:flex} }
+    @media (max-width: 740px){ .phone-overlay{display:flex} .checks{grid-template-columns:1fr} }
   </style>
 </head>
 <body>
@@ -129,7 +137,7 @@
   <div class="phone-overlay" id="phoneOverlay">
     <div class="phone-box">
       <h4>Best viewed on a computer or iPad</h4>
-      <p>This site is optimized for larger screens so you can see big photos and easy‑to‑read details. Please revisit on a computer or iPad for the best experience.</p>
+      <p>This site is optimized for larger screens so you can see big photos and easy-to-read details. Please revisit on a computer or iPad for the best experience.</p>
       <button class="btn btn-primary" id="dismissOverlay">Continue on phone anyway</button>
     </div>
   </div>
@@ -168,15 +176,15 @@
     <div>
       <span class="badge">🎈 Super Cute • Super Fun • We Travel!</span>
       <h2>Miss Kiddee & Friends bring<br>COLORFUL JOY to your event</h2>
-      <p>Tell us <strong>when</strong>, <strong>where</strong>, and <strong>what activities</strong> you’d love. We’ll bring the giggles, sparkles, and balloons. <strong>2‑hour minimum</strong> for bookings. Willing to travel for birthdays, schools, festivals, corporate family days, and more.</p>
+      <p>Tell us <strong>when</strong>, <strong>where</strong>, and <strong>what activities</strong> you’d love. We’ll bring the giggles, sparkles, and balloons. <strong>2-hour minimum</strong> for bookings. Willing to travel for birthdays, schools, festivals, corporate family days, and more.</p>
       <div class="cta-row">
         <a href="#contact" class="btn btn-primary" data-confetti>Get a Fast Quote</a>
         <a href="#packages" class="btn btn-outline">See Packages</a>
       </div>
       <div class="pill-row">
         <span class="pill">Fully Insured</span>
-        <span class="pill">Cosmetic‑grade Glitter</span>
-        <span class="pill">Latex‑free Options</span>
+        <span class="pill">Cosmetic-grade Glitter</span>
+        <span class="pill">Latex-free Options</span>
         <span class="pill">Travel Friendly</span>
       </div>
     </div>
@@ -190,15 +198,15 @@
         <p class="subtitle">Pick your favorites — or mix & match for maximum smiles!</p>
       </div>
       <div class="grid grid-3">
-        <div class="service"><span class="tag">🎨 Face Painting</span><h4>Fast, Fabulous Designs</h4><p>Butterflies, superheroes, unicorns, festival glitter — all skin‑safe and photo‑ready.</p></div>
-        <div class="service"><span class="tag" style="background:var(--secondary)">🎈 Balloons</span><h4>Wow‑Factor Twists</h4><p>Line‑friendly swords & puppy dogs or deluxe creations for VIP birthday kids.</p></div>
-        <div class="service"><span class="tag" style="background:var(--mint)">✨ Glitter Tattoos</span><h4>Sparkle for Days</h4><p>Water‑resistant designs perfect for pool parties and outdoor fun.</p></div>
-        <div class="service"><span class="tag" style="background:#ffb4e6">👩‍🎨 Caricatures</span><h4>Keep‑Forever Keepsakes</h4><p>Fun sketches that make great favors for kids & grown‑ups alike.</p></div>
-        <div class="service"><span class="tag" style="background:#ffd54a">🍿 Concessions</span><h4>Yummy Add‑Ons</h4><p>Cotton candy, popcorn, snow cones & shaved ice. Attendant included.</p></div>
-        <div class="service"><span class="tag" style="background:#c9b6ff">🎭 Mascots</span><h4>Magical Meet‑and‑Greets</h4><p>Character visits with photo ops and dance‑along moments.</p></div>
+        <div class="service"><span class="tag">🎨 Face Painting</span><h4>Fast, Fabulous Designs</h4><p>Butterflies, superheroes, unicorns, festival glitter — all skin-safe and photo-ready.</p></div>
+        <div class="service"><span class="tag" style="background:var(--secondary)">🎈 Balloons</span><h4>Wow-Factor Twists</h4><p>Line-friendly swords & puppy dogs or deluxe creations for VIP birthday kids.</p></div>
+        <div class="service"><span class="tag" style="background:var(--mint)">✨ Glitter Tattoos</span><h4>Sparkle for Days</h4><p>Water-resistant designs perfect for pool parties and outdoor fun.</p></div>
+        <div class="service"><span class="tag" style="background:#ffb4e6">👩‍🎨 Caricatures</span><h4>Keep-Forever Keepsakes</h4><p>Fun sketches that make great favors for kids & grown-ups alike.</p></div>
+        <div class="service"><span class="tag" style="background:#ffd54a">🍿 Concessions</span><h4>Yummy Add-Ons</h4><p>Cotton candy, popcorn, snow cones. Attendant included.</p></div>
+        <div class="service"><span class="tag" style="background:#c9b6ff">🎭 Mascots</span><h4>Magical Meet-and-Greets</h4><p>Character visits with photo ops and dance-along moments.</p></div>
         <div class="service"><span class="tag" style="background:#6af0c4">🏰 Bounce Houses</span><h4>Big Energy, Big Smiles</h4><p>Clean, safe inflatable fun. Add attendants for large events.</p></div>
-        <div class="service"><span class="tag" style="background:#fda4af">🤡 Clowning & Games</span><h4>Giggles & Bubbles</h4><p>Interactive silliness, music, parachute play, and birthday spotlights.</p></div>
-        <div class="service"><span class="tag" style="background:#d6fff4">📸 Photo‑Op</span><h4>DIY Backdrop Kit</h4><p>Props and instant‑print frames so families take the fun home.</p></div>
+        <div class="service"><span class="tag" style="background:#ffa3c3">🎨 Murals</span><h4>Custom Mural Art</h4><p>Event-day live mural or pre-event custom artwork to match your theme.</p></div>
+        <div class="service"><span class="tag" style="background:#d6fff4">📸 Photo-Op</span><h4>DIY Backdrop Kit</h4><p>Props and instant-print frames so families take the fun home.</p></div>
       </div>
     </div>
   </section>
@@ -206,7 +214,7 @@
   <!-- PACKAGES -->
   <section id="packages">
     <div class="wrap">
-      <div class="title"><h3>Popular Packages</h3><p class="subtitle">Transparent pricing. Customize for your guest count and timeline (2‑hour minimum).</p></div>
+      <div class="title"><h3>Popular Packages</h3><p class="subtitle">Transparent pricing. Customize for your guest count and timeline (2-hour minimum).</p></div>
       <div class="grid packages">
         <div class="card">
           <h4>Sprinkles (2 Hrs)</h4><div class="price">$375</div>
@@ -220,7 +228,7 @@
         </div>
         <div class="card" style="border-color:#fff1c9">
           <h4>Showstopper (3 Hrs)</h4><div class="price">$575</div>
-          <ul class="ul"><li>Clowning + Face Paint + Balloons</li><li>Glitter Tattoos or Caricatures add‑on</li><li>Up to ~30 kids</li></ul>
+          <ul class="ul"><li>Clowning + Face Paint + Balloons</li><li>Glitter Tattoos or Caricatures add-on</li><li>Up to ~30 kids</li></ul>
           <div style="margin-top:auto"><a href="#contact" class="btn btn-primary" data-confetti>Reserve Showstopper</a></div>
         </div>
       </div>
@@ -242,7 +250,7 @@
           <div class="slide"><span>✨ Glitter Tattoos — Stars</span></div>
           <div class="slide"><span>🤡 Clowning — Games & Giggles</span></div>
           <div class="slide"><span>👩‍🎨 Caricatures — Keepsakes</span></div>
-          <div class="slide"><span>🍿 Concessions — Cotton Candy</span></div>
+          <div class="slide"><span>🎨 Murals — Live Art</span></div>
         </div>
         <div class="ss-nav">
           <button class="ss-btn" id="prev">‹ Prev</button>
@@ -256,14 +264,14 @@
   <!-- CONTACT -->
   <section id="contact">
     <div class="wrap">
-      <div class="title"><h3>Check Availability</h3><p class="subtitle">Tell us your date, location, duration (2‑hour minimum), and the activities you’d like.</p></div>
+      <div class="title"><h3>Check Availability</h3><p class="subtitle">Tell us your date, location, duration (2-hour minimum), and the activities you’d like.</p></div>
       <form id="quoteForm" class="form-grid" onsubmit="handleQuote(event)">
         <div class="full"><label for="name">Your Name*</label><input id="name" required placeholder="Jane Parent" /></div>
         <div><label for="email">Email*</label><input id="email" type="email" required placeholder="you@example.com" /></div>
-        <div><label for="phone">Phone*</label><input id="phone" type="tel" required placeholder="(555) 555‑5555" /></div>
+        <div><label for="phone">Phone*</label><input id="phone" type="tel" required placeholder="(555) 555-5555" /></div>
         <div><label for="date">Event Date*</label><input id="date" type="date" required /></div>
         <div><label for="start">Start Time*</label><input id="start" type="time" required /></div>
-        <div><label for="duration">Duration (hours)* — 2‑hour minimum</label><input id="duration" type="number" min="2" step="0.5" required value="2" /></div>
+        <div><label for="duration">Duration (hours)* — 2-hour minimum</label><input id="duration" type="number" min="2" step="0.5" required value="2" /></div>
         <div class="full"><label for="address">Event Address*</label><input id="address" required placeholder="Venue / street, city, state" /></div>
         <div><label for="guests">Estimated # of Kids</label><input id="guests" type="number" min="1" placeholder="20" /></div>
         <div class="full"><label>Activities (pick all that apply)*</label>
@@ -275,14 +283,14 @@
             <label><input type="checkbox" name="acts" value="Concessions: Cotton Candy"/> Concessions: Cotton Candy</label>
             <label><input type="checkbox" name="acts" value="Concessions: Popcorn"/> Concessions: Popcorn</label>
             <label><input type="checkbox" name="acts" value="Concessions: Snow Cones"/> Concessions: Snow Cones</label>
-            <label><input type="checkbox" name="acts" value="Concessions: Shaved Ice"/> Concessions: Shaved Ice</label>
             <label><input type="checkbox" name="acts" value="Mascot Visit"/> Mascot Visit</label>
             <label><input type="checkbox" name="acts" value="Bounce House"/> Bounce House</label>
+            <label><input type="checkbox" name="acts" value="Murals"/> Murals</label>
           </div>
         </div>
         <div class="full"><label for="message">Notes / Special Requests</label><textarea id="message" placeholder="Theme, age range, parking details, indoor/outdoor, etc."></textarea></div>
         <div class="full"><p class="note">We’ll reply with availability and a tailored quote. (If the server email isn’t set up, your email client will open with all details prefilled.)</p></div>
-        <div class="full"><button class="btn btn-primary" type="submit" data-confetti>Request Quote</button></div>
+        <div class="full btn-row"><button class="btn btn-primary" type="submit" data-confetti>Request Quote</button></div>
       </form>
     </div>
   </section>
@@ -297,7 +305,7 @@
       </div>
       <div class="quote">
         <div class="stars">★★★★★</div>
-        <p>“We hired them for our school fun day — high‑throughput, friendly, and the designs looked fantastic in photos.”</p>
+        <p>“We hired them for our school fun day — high-throughput, friendly, and the designs looked fantastic in photos.”</p>
         <div class="reviewer">— Mr. Lee, PTA</div>
       </div>
     </div>
@@ -313,7 +321,7 @@
     </div>
   </footer>
 
-  <!-- Sticky Book Now bar for small screens (still appears if user dismisses overlay) -->
+  <!-- Sticky Book Now bar for small screens -->
   <div class="sticky-cta" style="display:none;position:fixed;left:0;right:0;bottom:0;background:#ffffffd9;backdrop-filter:blur(6px);border-top:3px solid #ffe7f2;box-shadow:0 -6px 20px rgba(0,0,0,.06);padding:10px 12px;z-index:70">
     <div style="max-width:1150px;margin:auto;display:flex;gap:10px;align-items:center;justify-content:space-between;flex:1">
       <strong style="font-family:Fredoka">🎉 Book your date</strong>
@@ -332,6 +340,11 @@
     const canvas=document.getElementById('confetti'); const ctx=canvas.getContext('2d'); let W,H; function size(){W=canvas.width=innerWidth; H=canvas.height=innerHeight;} size(); addEventListener('resize',size);
     function fireConfetti(){ const pieces=Array.from({length:120},()=>({x:Math.random()*W,y:-20-Math.random()*80,r:6+Math.random()*8,s:2+Math.random()*3,a:Math.random()*Math.PI*2,hue:[340,195,48,160,265][Math.floor(Math.random()*5)]})); const start=performance.now(); function tick(t){ const dt=(t-start)/1000; if(dt>2.2){return} ctx.clearRect(0,0,W,H); pieces.forEach(p=>{p.y+=p.s*4; p.x+=Math.sin((p.y+p.a)/20)*2; ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.a+p.y/50); ctx.fillStyle=`hsl(${p.hue} 95% 60%)`; ctx.fillRect(-p.r/2,-p.r/2,p.r,p.r); ctx.restore(); }); requestAnimationFrame(tick);} requestAnimationFrame(tick); }
     document.querySelectorAll('[data-confetti]').forEach(btn=>btn.addEventListener('click',()=>fireConfetti()));
+
+    // Phone overlay dismiss
+    const overlay=document.getElementById('phoneOverlay');
+    const dismiss=document.getElementById('dismissOverlay');
+    if(dismiss){ dismiss.addEventListener('click',()=>{ overlay.style.display='none'; }); }
 
     // Mobile menu toggle
     const menuBtn=document.getElementById('menuBtn');
@@ -356,11 +369,6 @@
     }
     toggleSticky(); addEventListener('resize', toggleSticky);
 
-    // Phone overlay dismiss
-    const overlay=document.getElementById('phoneOverlay');
-    const dismiss=document.getElementById('dismissOverlay');
-    if(dismiss){ dismiss.addEventListener('click',()=>{ overlay.style.display='none'; }); }
-
     // Simple slideshow
     const slidesEl=document.getElementById('slides');
     const dotsEl=document.getElementById('dots');
@@ -376,7 +384,7 @@
     const ss=document.getElementById('slideshow');
     if(ss){ ss.addEventListener('mouseenter',()=>clearInterval(timer)); ss.addEventListener('mouseleave',()=>{timer=setInterval(()=>go(idx+1),4000)}); }
 
-    // Form submit → POST to /api/quote with mailto fallback
+    // Form submit → POST to /api/quote with mailto fallback to test inbox
     function handleQuote(e){
       e.preventDefault();
       const acts=[...document.querySelectorAll('input[name="acts"]:checked')].map(x=>x.value);
@@ -398,22 +406,15 @@
       };
 
       fetch('/api/quote',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
-        .then(async(res)=>{ if(!res.ok) throw new Error(await res.text()); fireConfetti(); alert('Thanks! Your request was sent. We\'ll reply ASAP.'); e.target.reset(); document.getElementById('duration').value=2; })
+        .then(async(res)=>{ if(!res.ok) throw new Error(await res.text()); 
+          fireConfetti(); 
+          alert('Thanks! Your request was sent. We\'ll reply ASAP.'); 
+          e.target.reset(); 
+          document.getElementById('duration').value=2; 
+        })
         .catch(()=>{
           const body = encodeURIComponent(
-            `New booking inquiry
-
-Name: ${payload.name}
-Email: ${payload.email}
-Phone: ${payload.phone}
-Date: ${payload.date} ${payload.start}
-Duration: ${payload.duration} hours
-Address: ${payload.address}
-Guests: ${payload.guests}
-Activities: ${payload.activities.join(', ')}
-
-Notes:
-${payload.message}`
+            `New booking inquiry\n\nName: ${payload.name}\nEmail: ${payload.email}\nPhone: ${payload.phone}\nDate: ${payload.date} ${payload.start}\nDuration: ${payload.duration} hours\nAddress: ${payload.address}\nGuests: ${payload.guests}\nActivities: ${payload.activities.join(', ')}\n\nNotes:\n${payload.message}`
           );
           window.location.href=`mailto:developyoursuperpowers@gmail.com?subject=${encodeURIComponent('New Booking Inquiry — Miss Kiddee & Friends')}&body=${body}`;
         });
@@ -442,8 +443,7 @@ ${payload.message}`
         <p><strong>Address:</strong> ${data.address}</p>
         <p><strong>Guests:</strong> ${data.guests}</p>
         <p><strong>Activities:</strong> ${Array.isArray(data.activities)?data.activities.join(', '):''}</p>
-        <p><strong>Notes:</strong><br/>${(data.message||'').replace(/
-/g,'<br/>')}</p>`
+        <p><strong>Notes:</strong><br/>${(data.message||'').replace(/\\n/g,'<br/>')}</p>`
 
       await resend.emails.send({ to: TO, from: FROM, subject: 'New Booking Inquiry — Miss Kiddee & Friends', html })
       return NextResponse.json({ ok:true })
