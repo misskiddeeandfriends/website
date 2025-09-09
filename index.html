@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>MissKiddeeAndFriends.com — Clowns • Face Painting • Party Fun</title>
-  <meta name="description" content="Book Miss Kiddee & Friends for colorful kids’ party entertainment: clowning, face painting, balloons, glitter tattoos, caricatures, mascots, concessions, bounce houses, and more. Willing to travel. 2-hour minimum." />
+  <meta name="description" content="Book Miss Kiddee & Friends for colorful kids’ party entertainment: clowning, face painting, balloons, glitter tattoos, caricatures, mascots, concessions, bounce houses, and more. iPad & desktop–optimized. 2-hour minimum." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
     html,body{margin:0;padding:0;font-family:"Nunito",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink)}
     a{color:inherit;text-decoration:none}
     img{max-width:100%;display:block}
-    body{padding-bottom:68px} /* room for sticky bar on phones */
+    body{padding-bottom:68px}
     body::before{content:"";position:fixed;inset:-40px;background:
       radial-gradient(circle at 20% 10%, rgba(255,90,165,.10) 0 140px, transparent 150px),
       radial-gradient(circle at 80% 20%, rgba(107,227,255,.12) 0 140px, transparent 150px),
@@ -29,7 +29,6 @@
     .brand h1{font-family:"Fredoka";font-size:19px;margin:0;letter-spacing:.2px}
     .nav a{font-weight:700;padding:8px 12px;border-radius:12px}
     .nav-links{display:flex;gap:6px;align-items:center}
-    /* Hamburger + mobile overlay menu */
     .mobile-toggle{display:none;border:none;background:#fff;border:2px dashed var(--ink-soft);padding:8px 12px;border-radius:12px;font-weight:800}
     .nav-links.mobile{display:none;position:fixed;left:12px;right:12px;top:64px;background:#fff;border:3px solid #f3e9ff;border-radius:16px;box-shadow:var(--shadow);padding:10px;z-index:60}
     .nav-links.mobile a{display:block;padding:12px 14px;border-bottom:1px dashed #f0e8ff}
@@ -44,7 +43,7 @@
     /* HERO */
     .hero{max-width:1150px;margin:18px auto;padding:22px 18px;display:grid;grid-template-columns:1fr;gap:18px;align-items:center}
     .badge{display:inline-flex;gap:8px;align-items:center;background:#fff;border:2px dashed var(--secondary);padding:6px 10px;border-radius:999px;font-weight:800}
-    .hero h2{font-family:"Fredoka";font-size:44px;line-height:1.04;margin:10px 0}
+    .hero h2{font-family:"Fredoka";font-size:46px;line-height:1.04;margin:10px 0}
     .hero p{font-size:18px;color:var(--ink-soft);margin:0 0 18px}
     .cta-row{display:flex;gap:12px;flex-wrap:wrap}
     .pill-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
@@ -57,30 +56,45 @@
     .title h3{font-family:"Fredoka";font-size:34px;margin:0}
     .subtitle{color:var(--ink-soft)}
 
-    /* Cards & grids */
+    /* Services & cards */
     .grid{display:grid;gap:16px}
     .grid-3{grid-template-columns:repeat(3,1fr)}
     .service{background:#fff;border-radius:20px;padding:18px;border:3px solid #eaf7ff;box-shadow:var(--shadow)}
     .service h4{font-family:"Fredoka";margin:8px 0 6px;font-size:22px}
     .tag{display:inline-block;background:var(--accent);padding:6px 10px;border-radius:12px;font-weight:800}
+
+    /* Packages */
     .packages{grid-template-columns:repeat(3,1fr)}
     .card{background:#fff;border-radius:22px;padding:20px;border:3px solid #ffe9f5;box-shadow:var(--shadow);display:flex;flex-direction:column}
     .price{font-family:"Fredoka";font-size:36px;margin:6px 0}
     .ul{margin:10px 0 0;padding-left:18px}
     .ul li{margin:8px 0}
-    .gallery{grid-template-columns:repeat(6,1fr)}
-    .shot{aspect-ratio:1/1;border-radius:14px;background:linear-gradient(135deg,#fff1f7,#f1fff9);border:2px dashed #ffd9eb}
-    .reviews{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
+
+    /* Gallery slideshow */
+    .slideshow{position:relative;border-radius:20px;border:3px solid #eaf7ff;box-shadow:var(--shadow);overflow:hidden;background:#fff}
+    .slides{display:flex;transition:transform .5s ease}
+    .slide{min-width:100%;aspect-ratio:16/9;display:grid;place-items:center;font-weight:800;color:#bd2c74;background:linear-gradient(135deg,#fff1f7,#f1fff9)}
+    .slide span{background:#ffffffcc;padding:10px 14px;border-radius:12px;border:2px dashed #ffd1ea}
+    .ss-controls{position:absolute;inset:auto 0 10px 0;display:flex;justify-content:center;gap:8px}
+    .dot{width:10px;height:10px;border-radius:999px;border:2px solid #bd2c74;background:#fff;opacity:.6}
+    .dot.active{opacity:1;background:#ff7ec1}
+    .ss-nav{position:absolute;top:50%;left:0;right:0;display:flex;justify-content:space-between;transform:translateY(-50%)}
+    .ss-btn{background:#ffffffd9;border:2px dashed #e7c7ff;border-radius:12px;padding:8px 12px;margin:0 8px;cursor:pointer}
+
+    /* Reviews */
+    .reviews{display:grid;grid-template-columns:1fr 1fr;gap:18px}
     .quote{background:#fff;border-radius:20px;padding:18px;border:3px solid #e9fffb;box-shadow:var(--shadow)}
     .stars{letter-spacing:2px;color:#ffb703}
     .reviewer{font-weight:800;margin-top:6px;color:#3a4663}
 
-    /* Form */
-    form{background:#fff;border-radius:20px;padding:18px;border:3px solid #eaf7ff;box-shadow:var(--shadow)}
-    label{font-weight:800;display:block;margin:10px 0 6px}
+    /* Form (polished) */
+    form{background:#fff;border-radius:20px;padding:22px;border:3px solid #eaf7ff;box-shadow:var(--shadow)}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .full{grid-column:1 / -1}
+    label{font-weight:800;display:block;margin:6px 0 6px}
     input,select,textarea{width:100%;padding:12px 14px;border-radius:12px;border:2px solid #eef0f6;font:inherit}
     textarea{min-height:120px}
-    .checks{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    .checks{display:grid;grid-template-columns:1fr 1fr;gap:10px}
     .checks label{display:flex;gap:10px;align-items:center;font-weight:700}
     .note{font-size:14px;color:var(--ink-soft)}
     form button[type=submit]{width:100%}
@@ -88,29 +102,42 @@
     /* Footer */
     footer{background:#fff;border-top:1px solid #f1e7ef;padding:28px 18px;margin-top:30px}
 
-    /* PHONE/TABLET — FORCE SINGLE COLUMN */
+    /* Phone message overlay */
+    .phone-overlay{display:none;position:fixed;inset:0;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);z-index:100;align-items:center;justify-content:center;text-align:center;padding:28px}
+    .phone-box{max-width:520px;background:#fff;border-radius:20px;border:3px solid #ffe7f2;box-shadow:var(--shadow);padding:22px}
+    .phone-box h4{font-family:"Fredoka";font-size:22px;margin:0 0 8px}
+    .phone-box p{margin:0 0 12px;color:var(--ink-soft)}
+    .phone-box .btn{width:100%}
+
+    /* BREAKPOINTS */
+    @media (max-width: 1180px){ .hero h2{font-size:42px} }
     @media (max-width: 900px){
       .mobile-toggle{display:inline-flex}
       .nav-links.desktop{display:none !important}
-      .hero{grid-template-columns:1fr !important; gap:16px}
-      .hero h2{font-size:32px}
-      .grid, .grid-3, .packages, .gallery, .reviews, .checks{grid-template-columns:1fr !important}
-      input,select,textarea,.btn{font-size:16px}
+      .hero{grid-template-columns:1fr; gap:16px}
+      .form-grid{grid-template-columns:1fr}
+      .checks{grid-template-columns:1fr}
+      .reviews{grid-template-columns:1fr}
       .sticky-cta{display:flex}
-      .nav-links.mobile a{padding:12px 14px}
     }
-    @media (max-width: 520px){
-      .title h3{font-size:28px}
-      .price{font-size:30px}
-    }
+    /* Treat small phones as not-optimized → show message (iPad widths are fine) */
+    @media (max-width: 740px){ .phone-overlay{display:flex} }
   </style>
 </head>
 <body>
+  <!-- Phone advisory overlay -->
+  <div class="phone-overlay" id="phoneOverlay">
+    <div class="phone-box">
+      <h4>Best viewed on a computer or iPad</h4>
+      <p>This site is optimized for larger screens so you can see big photos and easy‑to‑read details. Please revisit on a computer or iPad for the best experience.</p>
+      <button class="btn btn-primary" id="dismissOverlay">Continue on phone anyway</button>
+    </div>
+  </div>
+
   <!-- NAV -->
   <nav class="nav">
     <div class="nav-inner">
       <a class="brand" href="#top" aria-label="Miss Kiddee & Friends home">
-        <!-- simple inline badge; replace with your exported logo if you like -->
         <svg viewBox="0 0 64 64" aria-hidden="true">
           <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff5aa5"/><stop offset="1" stop-color="#6be3ff"/></linearGradient></defs>
           <circle cx="32" cy="32" r="30" fill="url(#g)"/>
@@ -201,37 +228,45 @@
     </div>
   </section>
 
+  <!-- GALLERY with slideshow -->
+  <section id="gallery">
+    <div class="wrap">
+      <div class="title">
+        <h3>Happy Faces Gallery</h3>
+        <p class="subtitle">A quick peek! Replace these with your favorite action shots.</p>
+      </div>
+      <div class="slideshow" id="slideshow">
+        <div class="slides" id="slides">
+          <div class="slide"><span>🎨 Face Painting — Butterflies</span></div>
+          <div class="slide"><span>🎈 Balloon Twists — Flowers</span></div>
+          <div class="slide"><span>✨ Glitter Tattoos — Stars</span></div>
+          <div class="slide"><span>🤡 Clowning — Games & Giggles</span></div>
+          <div class="slide"><span>👩‍🎨 Caricatures — Keepsakes</span></div>
+          <div class="slide"><span>🍿 Concessions — Cotton Candy</span></div>
+        </div>
+        <div class="ss-nav">
+          <button class="ss-btn" id="prev">‹ Prev</button>
+          <button class="ss-btn" id="next">Next ›</button>
+        </div>
+        <div class="ss-controls" id="dots"></div>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section id="contact">
     <div class="wrap">
       <div class="title"><h3>Check Availability</h3><p class="subtitle">Tell us your date, location, duration (2‑hour minimum), and the activities you’d like.</p></div>
-      <div class="grid" style="grid-template-columns:1fr;gap:18px">
-        <form id="quoteForm" onsubmit="handleQuote(event)">
-          <label for="name">Your Name*</label>
-          <input id="name" required placeholder="Jane Parent" />
-
-          <label for="email">Email*</label>
-          <input id="email" type="email" required placeholder="you@example.com" />
-
-          <label for="phone">Phone*</label>
-          <input id="phone" type="tel" required placeholder="(555) 555‑5555" />
-
-          <label for="date">Event Date*</label>
-          <input id="date" type="date" required />
-
-          <label for="start">Start Time*</label>
-          <input id="start" type="time" required />
-
-          <label for="duration">Duration (hours)* — 2‑hour minimum</label>
-          <input id="duration" type="number" min="2" step="0.5" required value="2" />
-
-          <label for="address">Event Address*</label>
-          <input id="address" required placeholder="Venue / street, city, state" />
-
-          <label for="guests">Estimated # of Kids</label>
-          <input id="guests" type="number" min="1" placeholder="20" />
-
-          <label>Activities (pick all that apply)*</label>
+      <form id="quoteForm" class="form-grid" onsubmit="handleQuote(event)">
+        <div class="full"><label for="name">Your Name*</label><input id="name" required placeholder="Jane Parent" /></div>
+        <div><label for="email">Email*</label><input id="email" type="email" required placeholder="you@example.com" /></div>
+        <div><label for="phone">Phone*</label><input id="phone" type="tel" required placeholder="(555) 555‑5555" /></div>
+        <div><label for="date">Event Date*</label><input id="date" type="date" required /></div>
+        <div><label for="start">Start Time*</label><input id="start" type="time" required /></div>
+        <div><label for="duration">Duration (hours)* — 2‑hour minimum</label><input id="duration" type="number" min="2" step="0.5" required value="2" /></div>
+        <div class="full"><label for="address">Event Address*</label><input id="address" required placeholder="Venue / street, city, state" /></div>
+        <div><label for="guests">Estimated # of Kids</label><input id="guests" type="number" min="1" placeholder="20" /></div>
+        <div class="full"><label>Activities (pick all that apply)*</label>
           <div class="checks">
             <label><input type="checkbox" name="acts" value="Face Painting"/> Face Painting</label>
             <label><input type="checkbox" name="acts" value="Balloon Artist"/> Balloon Artist</label>
@@ -244,21 +279,15 @@
             <label><input type="checkbox" name="acts" value="Mascot Visit"/> Mascot Visit</label>
             <label><input type="checkbox" name="acts" value="Bounce House"/> Bounce House</label>
           </div>
-
-          <label for="message">Notes / Special Requests</label>
-          <textarea id="message" placeholder="Theme, age range, parking details, indoor/outdoor, etc."></textarea>
-
-          <p class="note">We’ll email your request to our team and reply with availability and a tailored quote.</p>
-          <div style="margin-top:12px;display:flex;gap:12px;flex-wrap:wrap">
-            <button class="btn btn-primary" type="submit" data-confetti>Request Quote</button>
-            <a class="btn btn-outline" href="mailto:developyoursuperpowers@gmail.com">✉️ Email Us</a>
-          </div>
-        </form>
-      </div>
+        </div>
+        <div class="full"><label for="message">Notes / Special Requests</label><textarea id="message" placeholder="Theme, age range, parking details, indoor/outdoor, etc."></textarea></div>
+        <div class="full"><p class="note">We’ll reply with availability and a tailored quote. (If the server email isn’t set up, your email client will open with all details prefilled.)</p></div>
+        <div class="full"><button class="btn btn-primary" type="submit" data-confetti>Request Quote</button></div>
+      </form>
     </div>
   </section>
 
-  <!-- REVIEWS & BADGES -->
+  <!-- REVIEWS -->
   <section>
     <div class="wrap reviews">
       <div class="quote">
@@ -284,7 +313,7 @@
     </div>
   </footer>
 
-  <!-- Sticky Book Now bar for small screens -->
+  <!-- Sticky Book Now bar for small screens (still appears if user dismisses overlay) -->
   <div class="sticky-cta" style="display:none;position:fixed;left:0;right:0;bottom:0;background:#ffffffd9;backdrop-filter:blur(6px);border-top:3px solid #ffe7f2;box-shadow:0 -6px 20px rgba(0,0,0,.06);padding:10px 12px;z-index:70">
     <div style="max-width:1150px;margin:auto;display:flex;gap:10px;align-items:center;justify-content:space-between;flex:1">
       <strong style="font-family:Fredoka">🎉 Book your date</strong>
@@ -295,9 +324,10 @@
     </div>
   </div>
 
-  <!-- Confetti + form/email + mobile menu scripts -->
+  <!-- Confetti + slideshow + form/email + mobile menu scripts -->
   <canvas id="confetti" style="position:fixed;inset:0;pointer-events:none"></canvas>
   <script>
+    // Year + confetti
     const yearEl=document.getElementById('year'); if(yearEl) yearEl.textContent=new Date().getFullYear();
     const canvas=document.getElementById('confetti'); const ctx=canvas.getContext('2d'); let W,H; function size(){W=canvas.width=innerWidth; H=canvas.height=innerHeight;} size(); addEventListener('resize',size);
     function fireConfetti(){ const pieces=Array.from({length:120},()=>({x:Math.random()*W,y:-20-Math.random()*80,r:6+Math.random()*8,s:2+Math.random()*3,a:Math.random()*Math.PI*2,hue:[340,195,48,160,265][Math.floor(Math.random()*5)]})); const start=performance.now(); function tick(t){ const dt=(t-start)/1000; if(dt>2.2){return} ctx.clearRect(0,0,W,H); pieces.forEach(p=>{p.y+=p.s*4; p.x+=Math.sin((p.y+p.a)/20)*2; ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.a+p.y/50); ctx.fillStyle=`hsl(${p.hue} 95% 60%)`; ctx.fillRect(-p.r/2,-p.r/2,p.r,p.r); ctx.restore(); }); requestAnimationFrame(tick);} requestAnimationFrame(tick); }
@@ -321,12 +351,32 @@
 
     // Sticky CTA visibility
     function toggleSticky(){
-      const bar=document.querySelector('.sticky-cta');
-      if(!bar) return; bar.style.display = (window.innerWidth<=900) ? 'flex' : 'none';
+      const bar=document.querySelector('.sticky-cta'); if(!bar) return;
+      bar.style.display = (window.innerWidth<=900) ? 'flex' : 'none';
     }
     toggleSticky(); addEventListener('resize', toggleSticky);
 
-    // Form submit → POST to /api/quote (server email) with mailto fallback to developyoursuperpowers@gmail.com
+    // Phone overlay dismiss
+    const overlay=document.getElementById('phoneOverlay');
+    const dismiss=document.getElementById('dismissOverlay');
+    if(dismiss){ dismiss.addEventListener('click',()=>{ overlay.style.display='none'; }); }
+
+    // Simple slideshow
+    const slidesEl=document.getElementById('slides');
+    const dotsEl=document.getElementById('dots');
+    const prev=document.getElementById('prev');
+    const next=document.getElementById('next');
+    let idx=0; const total=slidesEl.children.length;
+    function render(){ slidesEl.style.transform=`translateX(-${idx*100}%)`; [...dotsEl.children].forEach((d,i)=>d.classList.toggle('active', i===idx)); }
+    function go(i){ idx=(i+total)%total; render(); }
+    for(let i=0;i<total;i++){ const d=document.createElement('div'); d.className='dot'+(i===0?' active':''); d.addEventListener('click',()=>go(i)); dotsEl.appendChild(d); }
+    if(prev) prev.addEventListener('click',()=>go(idx-1));
+    if(next) next.addEventListener('click',()=>go(idx+1));
+    let timer=setInterval(()=>go(idx+1), 4000);
+    const ss=document.getElementById('slideshow');
+    if(ss){ ss.addEventListener('mouseenter',()=>clearInterval(timer)); ss.addEventListener('mouseleave',()=>{timer=setInterval(()=>go(idx+1),4000)}); }
+
+    // Form submit → POST to /api/quote with mailto fallback
     function handleQuote(e){
       e.preventDefault();
       const acts=[...document.querySelectorAll('input[name="acts"]:checked')].map(x=>x.value);
@@ -376,7 +426,7 @@ ${payload.message}`
   import { Resend } from 'resend'
 
   const resend = new Resend(process.env.RESEND_API_KEY!)
-  const TO = 'developyoursuperpowers@gmail.com' // << test inbox for now
+  const TO = 'developyoursuperpowers@gmail.com' // test inbox for now
   const FROM = 'Miss Kiddee <bookings@yourdomain.com>' // use a verified domain in Resend
 
   export async function POST(req: Request){
